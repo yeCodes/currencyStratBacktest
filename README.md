@@ -16,7 +16,7 @@ It also computes some important properties that characterise the strategy:
   
 Methodology
 ***********
-This strategy computes the cumulative $ and RAND balances and adjusts them based on the long or short trading signal. It computes the portfolio$ NAV at every timestep based on spot rates and net $ or RAND positions.
+This strategy computes the cumulative USD and ZAR balances and adjusts them based on the long or short trading signal. It computes the portfolios NAV at every timestep based on spot rates and net USD or RAND positions.
 
 Important results
 *****************
@@ -32,16 +32,14 @@ Important results
 
 Imporvements next time
 **********************
-This strategy computes the cumulative $ and RAND balances and adjusts them based on the long or short trading signal. It computes the portfolio$ NAV at every timestep based on spot rates and net $ or RAND positions. 
+This strategy computes the cumulative USD and ZAR balances and adjusts them based on the long or short trading signal. It computes the portfolios NAV at every timestep based on spot rates and net USD or ZAR positions. 
 
-This approach can be greatly simplified by considering return and not $ and RAND balances at each timestep. Instead of building up cash balances in ZAR or USD bank accounts and profiting from this, a simpler approach could be to take whatever profits one makes from holding the USDZAR contract and being exposed to its return and closing out positions at the end of each day instead of having an accumulating exposure.
+This approach can be greatly simplified by considering return and not USD and ZAR balances at each timestep. Instead of building up cash balances in ZAR or USD bank accounts and profiting from this, a simpler approach could be to take whatever profits one makes from holding the USDZAR contract and being exposed to its return and closing out positions at the end of each day instead of having an accumulating exposure.
 
 Observations
-************
 1. Visual inspection of the graphs and of the USDZAR reveals that it most frequently trades in a range. This may imply that it tends to be a mean-reverting signal.
 
 Outstanding questions
-*********************
 1.  Could it be the case that volatility increases the likelihood of mean-reversion, which is why scaling position size with volatility works
     - It may well be the case that trading into volatility by scaling positions proportionally with volatility works well with range-bounded signals
 
