@@ -14,13 +14,34 @@ It also computes some important properties that characterise the strategy:
   - Max drawdown period
   - Max drawdown
   
-## Why the project is useful?
-*****************************
+Methodology
+***********
+This strategy computes the cumulative $ and RAND balances and adjusts them based on the long or short trading signal. It computes the portfolio$ NAV at every timestep based on spot rates and net $ or RAND positions.
 
 Important results
 *****************
+1. Very volatile strategy
+    - Large max drawdown window ~ 8 months. Maintaining a losing position for this long would be difficult
 
+2. Largest drawdown los of ~6x one's funds
 
+3. We note that the strategy's E(ret) and Sharpe are greatly improved by scaling the position with volatility
+    - Using other schemes, such as scaling with signal strength worsen performance. Scaling the signal with the inverse of volatility also worsens    performance. The result of this, is that scaling with using a signal/ noise metric also worsens performance
+
+4. We see oberve periods of appreciable underperformance when the USDZAR exhibits trending behaviour
 
 Imporvements next time
 **********************
+This strategy computes the cumulative $ and RAND balances and adjusts them based on the long or short trading signal. It computes the portfolio$ NAV at every timestep based on spot rates and net $ or RAND positions. 
+
+This approach can be greatly simplified by considering return and not $ and RAND balances at each timestep. Instead of building up cash balances in ZAR or USD bank accounts and profiting from this, a simpler approach could be to take whatever profits one makes from holding the USDZAR contract and being exposed to its return and closing out positions at the end of each day instead of having an accumulating exposure.
+
+Observations
+************
+1. Visual inspection of the graphs and of the USDZAR reveals that it most frequently trades in a range. This may imply that it tends to be a mean-reverting signal.
+
+Outstanding questions
+*********************
+1.  Could it be the case that volatility increases the likelihood of mean-reversion, which is why scaling position size with volatility works
+    - It may well be the case that trading into volatility by scaling positions proportionally with volatility works well with range-bounded signals
+
